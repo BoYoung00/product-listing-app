@@ -1,0 +1,26 @@
+@use "./reset.scss" as *;
+@use "./colors.scss" as *;
+@use "./mixin.scss" as *;
+html,
+body {
+  overflow-x: hidden;
+  height: 100%;
+  margin: 0;
+}
+body {
+  position: relative;
+  font-family: "Pretendard", "Inter";
+}
+header {
+  position: relative;
+}
+a {
+  color: inherit;
+}
+input {
+  z-index: 0;
+}
+textarea,
+input {
+  font-family: "Pretendard", "Inter";
+}
