@@ -1,0 +1,121 @@
+.card {
+  position: relative; // 메타 고정 배치를 위해 추가
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  transition: box-shadow 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* Grid 스타일 */
+.grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .thumbnailWrapper {
+    width: 100%;
+    height: 200px;
+    background-color: #f5f5f5;
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 16px;
+    position: relative;
+  }
+
+  .description {
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+  }
+}
+
+/* List 스타일 */
+.list {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+
+  .thumbnailWrapper {
+    width: 160px;
+    height: 160px;
+    flex-shrink: 0;
+    background-color: #f5f5f5;
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 16px;
+  }
+
+  .description {
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+}
+
+.content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.description {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 12px;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meta {
+  font-size: 14px;
+  color: #888;
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  align-items: flex-end;
+}
+
+.rating {
+  color: #ff9800;
+  font-weight: 500;
+}
+
+.reviews {
+  color: #666;
+}
