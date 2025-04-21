@@ -17,13 +17,13 @@ const SearchFilter = () => {
     initialOrder === "asc" || initialOrder === "desc" ? (initialOrder as "asc" | "desc") : "",
   );
 
-  // ✅ URL 변경 시 상태 동기화
+  // URL 변경 시 상태 동기화
   useEffect(() => {
     setQuery(initialQuery);
     setOrder(initialOrder === "asc" || initialOrder === "desc" ? (initialOrder as "asc" | "desc") : "");
   }, [initialQuery, initialOrder]);
 
-  // 검색 제출 → search API 사용
+  // 검색 제출
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -37,7 +37,7 @@ const SearchFilter = () => {
     router.push(`?${params.toString()}`);
   };
 
-  // 정렬 클릭 → 즉시 반영
+  // 정렬 클릭
   const handleSortClick = (selectedOrder: "asc" | "desc") => {
     const newOrder = order === selectedOrder ? "" : selectedOrder;
     setOrder(newOrder);
@@ -67,16 +67,16 @@ const SearchFilter = () => {
 
       <div className={styles.sortOptions}>
         <span
-          className={`${styles.sortOption} ${order === "asc" ? styles.active : ""}`}
-          onClick={() => handleSortClick("asc")}
-        >
-          별점 낮은순
-        </span>
-        <span
           className={`${styles.sortOption} ${order === "desc" ? styles.active : ""}`}
           onClick={() => handleSortClick("desc")}
         >
           별점 높은순
+        </span>
+        <span
+          className={`${styles.sortOption} ${order === "asc" ? styles.active : ""}`}
+          onClick={() => handleSortClick("asc")}
+        >
+          별점 낮은순
         </span>
       </div>
     </form>
