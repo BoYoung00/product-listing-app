@@ -1,7 +1,5 @@
 import { Product } from "@/types/product";
 
-const BASE_URL = "https://dummyjson.com/products";
-
 interface FetchOptions {
   query?: string; // 검색어
   sortBy?: string; // 정렬 기준
@@ -20,6 +18,7 @@ interface RawProduct {
 }
 
 export async function getProducts({ query: query, sortBy, order, limit = 20, skip = 0 }: FetchOptions) {
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
   const params = new URLSearchParams();
 
   if (query) params.set("q", query);
