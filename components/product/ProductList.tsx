@@ -91,22 +91,24 @@ export default function ProductList({ initialProducts, initialViewType, query, s
       {products.length === 0 ? (
         <div className={styles.message}>일치하는 결과가 없습니다.</div>
       ) : (
-        <ul className={viewType === "grid" ? styles.grid : styles.list}>
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} viewType={viewType} />
-          ))}
-        </ul>
+        <>
+          <ul className={viewType === "grid" ? styles.grid : styles.list}>
+            {products.map((product) => (
+              <ProductCard key={product.id} product={product} viewType={viewType} />
+            ))}
+          </ul>
+
+          {isLoading && (
+            <div className={styles.loadingWrapper}>
+              <ClipLoader color="#3b82f6" loading={isLoading} size={60} />
+            </div>
+          )}
+
+          {!isLoading && hasMore && <div ref={sentinelRef} style={{ height: 1 }} />}
+
+          {!hasMore && products.length > 0 && <div className={styles.message}>더 이상 불러올 수 없습니다.</div>}
+        </>
       )}
-
-      {isLoading && (
-        <div className={styles.loadingWrapper}>
-          <ClipLoader color="#3b82f6" loading={isLoading} size={60} />
-        </div>
-      )}
-
-      {!isLoading && hasMore && <div ref={sentinelRef} style={{ height: 1 }} />}
-
-      {!hasMore && <div className={styles.message}>더 이상 불러올 수 없습니다.</div>}
     </section>
   );
 }
