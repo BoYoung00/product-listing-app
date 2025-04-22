@@ -35,7 +35,7 @@ export async function getProducts({ query: query, sortBy, order, limit = 20, ski
   const res = await fetch(url, { cache: "no-store" });
 
   if (!res.ok) {
-    console.error("Error fetching products:", res.status);
+    console.log("Error fetching products:", res.status);
     return [];
   }
 

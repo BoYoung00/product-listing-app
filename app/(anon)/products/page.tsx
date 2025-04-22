@@ -8,13 +8,13 @@ import styles from "./products.module.scss";
 export default async function ProductsPage({
   searchParams,
 }: {
-  searchParams: { q?: string; sortBy?: string; order?: "asc" | "desc" };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
   const params = await searchParams;
 
-  const query = params.q || "";
-  const sortBy = params.sortBy || "";
-  const order = params.order || undefined;
+  const query = typeof params.q === "string" ? params.q : "";
+  const sortBy = typeof params.sortBy === "string" ? params.sortBy : "";
+  const order = params.order === "asc" || params.order === "desc" ? params.order : undefined;
 
   const cookieStore = await cookies();
   const viewType = cookieStore.get("viewType")?.value as ViewType;
@@ -33,8 +33,8 @@ export default async function ProductsPage({
       <ProductList
         initialProducts={initialProducts}
         initialViewType={viewType}
-        query={query || ""}
-        sortBy={sortBy || ""}
+        query={query}
+        sortBy={sortBy}
         order={order as "asc" | "desc"}
       />
     </div>
