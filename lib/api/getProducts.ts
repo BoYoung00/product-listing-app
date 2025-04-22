@@ -17,8 +17,8 @@ interface RawProduct {
   reviews?: number[] | number;
 }
 
-export async function getProducts({ query: query, sortBy, order, limit = 20, skip = 0 }: FetchOptions) {
-  const BASE_URL = process.env.REACT_APP_BASE_URL;
+export async function getProducts({ query, sortBy, order, limit = 20, skip = 0 }: FetchOptions) {
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
   const params = new URLSearchParams();
 
   if (query) params.set("q", query);
