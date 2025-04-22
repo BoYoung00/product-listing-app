@@ -9,7 +9,7 @@
 
 ## ⚙️ 기술 스택
 
-- **React 18**, **Next.js 15 (App Router)**
+- **React 19**, **Next.js 15 (App Router)**
 - **TypeScript**
 - **SCSS Modules**
 - **ESLint / Prettier**
